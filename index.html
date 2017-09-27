@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>chart</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+ 
+	<ul class="chat-thread less" id="view">
+		<li>Are we meeting today?</li>
+		<li>yes, what time suits you?</li>
+	
+		
+	</ul>
+
+
+	<div class="edit">
+		<input type="text" placeholder="请输入您的问题" id="inp">
+	</div>
+  <script src='jquery.js'></script>
+  <script>
+  	$(function(){
+  		// $("#view").scrollTop(document.getElementById("view").scrollHeight())
+  		function scroll(){
+  			var ul=document.getElementById('view');
+  			ul.scrollTop=ul.scrollHeight;
+  		}
+  		scroll();
+
+  		$("#inp").on("keydown",function(e){
+        console.log(e.keyCode)
+  			var key=e.keyCode;
+  			if(key==13){
+  				var li = document.createElement('li');
+  				li.innerHTML=$("#inp").val();
+  				// console.log(li)
+  				$("#view").append(li);
+  				//清空	
+  				$("#inp").val(' ');
+
+  				scroll()
+
+  			}
+
+  		})	
+  	})
+  </script>
+
+</body>
+
+</html>
